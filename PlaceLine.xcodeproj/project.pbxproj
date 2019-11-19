@@ -22,6 +22,14 @@
 		4883BB44238351ED00DB5D1B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB43238351ED00DB5D1B /* MenuCell.swift */; };
 		4883BB462383591D00DB5D1B /* SearchResultVenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB452383591D00DB5D1B /* SearchResultVenueCell.swift */; };
 		4883BB4823836CE300DB5D1B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB4723836CE300DB5D1B /* MapViewController.swift */; };
+		48D362F9238464330095C070 /* PlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48D362F7238464330095C070 /* PlanModel.xcdatamodeld */; };
+		48D362FC238469420095C070 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D362FB238469420095C070 /* DetailView.swift */; };
+		48D362FE238469700095C070 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D362FD238469700095C070 /* DetailView.xib */; };
+		48D3630423847DD70095C070 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3630223847DD70095C070 /* PhotosCell.swift */; };
+		48D3630523847DD70095C070 /* PhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D3630323847DD70095C070 /* PhotosCell.xib */; };
+		48D3630723848A5E0095C070 /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3630623848A5E0095C070 /* ImageServiceManager.swift */; };
+		48D3630923848B2C0095C070 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3630823848B2C0095C070 /* Constants.swift */; };
+		48D3630B23848DE60095C070 /* CurrentVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D3630A23848DE60095C070 /* CurrentVenue.swift */; };
 		CA4A3345977C7A5E722F5E19 /* Pods_PlaceLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15B432D6A760C123EA1CEC6 /* Pods_PlaceLine.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +51,14 @@
 		4883BB43238351ED00DB5D1B /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		4883BB452383591D00DB5D1B /* SearchResultVenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVenueCell.swift; sourceTree = "<group>"; };
 		4883BB4723836CE300DB5D1B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		48D362F8238464330095C070 /* PlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlanModel.xcdatamodel; sourceTree = "<group>"; };
+		48D362FB238469420095C070 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		48D362FD238469700095C070 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		48D3630223847DD70095C070 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		48D3630323847DD70095C070 /* PhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCell.xib; sourceTree = "<group>"; };
+		48D3630623848A5E0095C070 /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
+		48D3630823848B2C0095C070 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		48D3630A23848DE60095C070 /* CurrentVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentVenue.swift; sourceTree = "<group>"; };
 		902ADE09FCB0B80594A32E3B /* Pods-PlaceLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceLine.debug.xcconfig"; path = "Target Support Files/Pods-PlaceLine/Pods-PlaceLine.debug.xcconfig"; sourceTree = "<group>"; };
 		C0A3BFFAF5F119443581CF82 /* Pods-PlaceLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceLine.release.xcconfig"; path = "Target Support Files/Pods-PlaceLine/Pods-PlaceLine.release.xcconfig"; sourceTree = "<group>"; };
 		D15B432D6A760C123EA1CEC6 /* Pods_PlaceLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaceLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,11 +101,12 @@
 				4883BB35238343A600DB5D1B /* Storyboards */,
 				4883BB312383438200DB5D1B /* Model */,
 				4883BB322383438700DB5D1B /* View */,
-				4883BB332383438F00DB5D1B /* ModelView */,
+				4883BB332383438F00DB5D1B /* ViewModel */,
 				4883BB1E23833CB700DB5D1B /* AppDelegate.swift */,
 				4883BB2523833CBA00DB5D1B /* Assets.xcassets */,
 				4883BB2723833CBA00DB5D1B /* LaunchScreen.storyboard */,
 				4883BB2A23833CBA00DB5D1B /* Info.plist */,
+				48D362F7238464330095C070 /* PlanModel.xcdatamodeld */,
 			);
 			path = PlaceLine;
 			sourceTree = "<group>";
@@ -98,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4883BB392383444400DB5D1B /* City.swift */,
+				48D3630A23848DE60095C070 /* CurrentVenue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,17 +123,17 @@
 		4883BB322383438700DB5D1B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4883BB42238351CC00DB5D1B /* Cell */,
+				48D362FF23846ACE0095C070 /* Resources */,
 				4883BB342383439F00DB5D1B /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		4883BB332383438F00DB5D1B /* ModelView */ = {
+		4883BB332383438F00DB5D1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ModelView;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4883BB342383439F00DB5D1B /* Controller */ = {
@@ -142,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				4883BB372383440300DB5D1B /* PlaceServiceManager.swift */,
+				48D3630623848A5E0095C070 /* ImageServiceManager.swift */,
+				48D3630823848B2C0095C070 /* Constants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -153,8 +173,28 @@
 				4883BB452383591D00DB5D1B /* SearchResultVenueCell.swift */,
 				485DE4532383778500D23E12 /* VenueTimeLineCell.swift */,
 				485DE455238378EC00D23E12 /* LineCell.swift */,
+				48D3630223847DD70095C070 /* PhotosCell.swift */,
+				48D3630323847DD70095C070 /* PhotosCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		48D362FA238469280095C070 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				48D362FB238469420095C070 /* DetailView.swift */,
+				48D362FD238469700095C070 /* DetailView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		48D362FF23846ACE0095C070 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4883BB42238351CC00DB5D1B /* Cell */,
+				48D362FA238469280095C070 /* Xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6B420A5E621E6CC010CA8B80 /* Frameworks */ = {
@@ -235,7 +275,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4883BB2923833CBA00DB5D1B /* LaunchScreen.storyboard in Resources */,
+				48D362FE238469700095C070 /* DetailView.xib in Resources */,
 				4883BB2623833CBA00DB5D1B /* Assets.xcassets in Resources */,
+				48D3630523847DD70095C070 /* PhotosCell.xib in Resources */,
 				4883BB2423833CB700DB5D1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,17 +332,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				4883BB2123833CB700DB5D1B /* AddVenueController.swift in Sources */,
+				48D3630723848A5E0095C070 /* ImageServiceManager.swift in Sources */,
 				485DE4542383778500D23E12 /* VenueTimeLineCell.swift in Sources */,
 				4883BB1F23833CB700DB5D1B /* AppDelegate.swift in Sources */,
+				48D362FC238469420095C070 /* DetailView.swift in Sources */,
+				48D3630B23848DE60095C070 /* CurrentVenue.swift in Sources */,
 				4883BB3D23834FDF00DB5D1B /* ContainerViewController.swift in Sources */,
 				4883BB4823836CE300DB5D1B /* MapViewController.swift in Sources */,
 				4883BB412383500300DB5D1B /* MenuViewController.swift in Sources */,
+				48D3630423847DD70095C070 /* PhotosCell.swift in Sources */,
 				4883BB3A2383444400DB5D1B /* City.swift in Sources */,
+				48D362F9238464330095C070 /* PlanModel.xcdatamodeld in Sources */,
 				4883BB382383440300DB5D1B /* PlaceServiceManager.swift in Sources */,
 				4883BB44238351ED00DB5D1B /* MenuCell.swift in Sources */,
 				485DE456238378EC00D23E12 /* LineCell.swift in Sources */,
 				4883BB3F23834FED00DB5D1B /* HomeViewController.swift in Sources */,
 				4883BB462383591D00DB5D1B /* SearchResultVenueCell.swift in Sources */,
+				48D3630923848B2C0095C070 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +550,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		48D362F7238464330095C070 /* PlanModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				48D362F8238464330095C070 /* PlanModel.xcdatamodel */,
+			);
+			currentVersion = 48D362F8238464330095C070 /* PlanModel.xcdatamodel */;
+			path = PlanModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4883BB1323833CB600DB5D1B /* Project object */;
 }

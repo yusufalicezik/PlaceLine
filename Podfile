@@ -18,5 +18,6 @@ pod 'collection-view-layouts/FlipboardLayout'
 pod 'collection-view-layouts/FlickrLayout'
 pod "Pastel"
 pod 'IQKeyboardManagerSwift'
-
+pod 'Cards'
+pod 'AnimatedCollectionViewLayout'
 end
