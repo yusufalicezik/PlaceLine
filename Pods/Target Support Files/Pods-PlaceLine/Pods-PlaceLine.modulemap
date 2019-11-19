@@ -1,0 +1,6 @@
+framework module Pods_PlaceLine {
+  umbrella header "Pods-PlaceLine-umbrella.h"
+
+  export *
+  module * { export * }
+}
