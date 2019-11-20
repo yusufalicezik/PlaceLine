@@ -20,11 +20,13 @@ class DetailView: UIView {
     var city:Venue?
     var width:CGFloat?
     var parent:UIViewController?
+    var nib:UINib?
     func loadNib(_ parent:UIViewController){
         imageUrlDataList.removeAll()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "PhotosCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        nib = UINib(nibName: "PhotosCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         self.parent = parent
         if let city = city{
             self.titleLabel.text = city.name

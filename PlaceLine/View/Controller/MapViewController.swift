@@ -8,11 +8,11 @@
 
 import UIKit
 import MapKit
-
+import SDWebImage
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView:MKMapView!
     var city:Venue?
-    var detailsView:DetailView?
+    weak var detailsView:DetailView?
     var annotation:MKPointAnnotation?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,9 @@ class MapViewController: UIViewController {
     }
     
     fileprivate func getDetailsView(){
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
+        detailsView?.nib = nil
         detailsView?.removeFromSuperview()
         detailsView = Bundle.main.loadNibNamed("DetailView", owner: self, options: nil)?.first as? DetailView
         self.view.addSubview(detailsView!)
@@ -45,8 +48,17 @@ class MapViewController: UIViewController {
             }
         }
     }
-
+    deinit {
+        print("mapVC deinit")
+        
+    }
     @IBAction func backPressed(_ sender: Any) {
+        detailsView?.nib = nil
+        mapView.delegate = nil
+        self.detailsView?.removeFromSuperview()
+        self.detailsView = nil
+        mapView.removeFromSuperview()
+        mapView = nil
         self.dismiss(animated: true, completion: nil)
     }
 }
