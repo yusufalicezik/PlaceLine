@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class VenueTimeLineCell: UITableViewCell {
     
 
@@ -24,6 +24,12 @@ class VenueTimeLineCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func configureCell(_ planViewModel:PlanViewModel){
+        venueNameLabel.text = planViewModel.venueName
+        venueShortAddressLabel.text = planViewModel.venueShortAddress
+        venueTypeImageView.sd_setImage(with: URL(string: planViewModel.venueImage), placeholderImage: UIImage(named: "placeholder.png"))
+        containerView.layer.cornerRadius = 22.5 //circle
     }
 
 }

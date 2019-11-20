@@ -17,7 +17,7 @@ class DetailView: UIView {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     private var bottomConstraint:NSLayoutConstraint?
     var imageUrlDataList = [String]()
-    var city:VenueViewModel?
+    var venueViewModel:VenueViewModel?
     var width:CGFloat?
     var parent:UIViewController?
     var nib:UINib?
@@ -28,7 +28,7 @@ class DetailView: UIView {
         nib = UINib(nibName: "PhotosCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         self.parent = parent
-        if let city = city{
+        if let city = venueViewModel{
             self.titleLabel.text = city.venueName
             self.addressLabel.text = city.venueLocatin.address
         }
@@ -80,9 +80,9 @@ class DetailView: UIView {
         let plan = NSManagedObject(entity: entity!, insertInto: context)
         plan.setValue(false, forKey: "isDone")
         plan.setValue("Description", forKey: "venue_description")
-        plan.setValue(city?.venueIconUrl, forKey: "venue_image")
-        plan.setValue(city?.venueName, forKey: "venue_name")
-        plan.setValue(city?.venueShortAddres, forKey: "venue_short_address")
+        plan.setValue(venueViewModel?.venueIconUrl, forKey: "venue_image")
+        plan.setValue(venueViewModel?.venueName, forKey: "venue_name")
+        plan.setValue(venueViewModel?.venueShortAddres, forKey: "venue_short_address")
         plan.setValue(Date(), forKey: "venue_time")
         do {
             try context.save()

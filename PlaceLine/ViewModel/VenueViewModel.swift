@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 struct VenueListViewModel{
     private var venues:[Venue]
 }
@@ -56,5 +57,15 @@ extension VenueViewModel{
     }
     var venueId:String{
         return venue.id
+    }
+    var venueAnnotation:MKPointAnnotation{
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: self.venueLocatin.lat, longitude: self.venueLocatin.lng)
+        return annotation
+    }
+    var venueRegion:MKCoordinateRegion{
+        let diameter = 0.75 * 2000
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.venueLocatin.lat, longitude: self.venueLocatin.lng), latitudinalMeters: diameter, longitudinalMeters: diameter)
+        return region
     }
 }
