@@ -11,6 +11,8 @@ import UIKit
 class VenueTimeLineCell: UITableViewCell {
     
 
+    @IBOutlet weak var venueShortAddressLabel: UILabel!
+    @IBOutlet weak var venueNameLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var venueTypeImageView: UIImageView!
     override func awakeFromNib() {

@@ -201,7 +201,7 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LQH-IA-4ZB">
-                                                    <rect key="frame" x="90" y="21" width="309" height="36.5"/>
+                                                    <rect key="frame" x="90" y="4" width="309" height="70.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anıtkabir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekt-oV-Vfq">
                                                             <rect key="frame" x="0.0" y="0.0" width="309" height="20.5"/>
@@ -209,8 +209,8 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mebusevleri Mah. Anıt Cad. Anıttepe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv6-jk-Jeb">
-                                                            <rect key="frame" x="0.0" y="20.5" width="309" height="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jv6-jk-Jeb">
+                                                            <rect key="frame" x="0.0" y="20.5" width="309" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -230,6 +230,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="2kp-6a-NXO" id="MUI-sB-GW2"/>
+                                            <outlet property="venueNameLabel" destination="ekt-oV-Vfq" id="tu4-45-xxh"/>
+                                            <outlet property="venueShortAddressLabel" destination="Jv6-jk-Jeb" id="QEn-1O-qNH"/>
                                             <outlet property="venueTypeImageView" destination="5PE-oT-Oek" id="Zqu-CU-zzW"/>
                                         </connections>
                                     </tableViewCell>

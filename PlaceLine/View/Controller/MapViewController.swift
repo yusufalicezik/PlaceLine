@@ -40,6 +40,7 @@ class MapViewController: UIViewController {
         ImageServiceManager.shared.getFlickrImageUrl(annotation!) {[weak self] (imageList) in
             self?.detailsView?.imageUrlDataList = imageList
             DispatchQueue.main.async {
+                if imageList.isEmpty{self?.detailsView?.loadingIndicator.stopAnimating()}
                 self?.detailsView?.collectionView.reloadData()
             }
         }
