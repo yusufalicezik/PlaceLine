@@ -8,40 +8,47 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
+import RxCocoa
 
 class AddVenueController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var dataList = [Venue]()
+    //var dataList = [Venue]()
+    private var venueListViewModel:VenueListViewModel!
     var delegate:HamburgerMenuDelegate?
+    var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        // Do any additional setup after loading the view.
     }
     private func setup(){
         tableView.tableFooterView = UIView()
-        searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        //searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        searchTextField.rx.text.subscribe(onNext:{[weak self] text in
+            self?.searchVenue(withKey: text!)
+        }).disposed(by: disposeBag)
     }
 
     fileprivate func searchVenue(withKey:String){
+        PlaceServiceManager.shared.currentRequest?.cancel()
         if withKey.isEmpty{
-            self.dataList.removeAll()
+            if venueListViewModel != nil {venueListViewModel.clearData()}
             self.tableView.reloadData()
         }else{
             PlaceServiceManager.shared.getVenuesForQuickSearch(byVenueName: withKey) { [weak self] city in
                 print(withKey)
-                self?.dataList = city.response.venues
+                self?.venueListViewModel = VenueListViewModel(city.response.venues)
+                //self?.dataList = city.response.venues
                 DispatchQueue.main.async {
                     self!.tableView.reloadData()
                 }
             }
         }
     }
-    @objc func textFieldDidChange(_ textfield:UITextField){
-        PlaceServiceManager.shared.currentRequest?.cancel()
-        self.searchVenue(withKey: textfield.text!)
-    }
+//    @objc func textFieldDidChange(_ textfield:UITextField){
+//        self.searchVenue(withKey: textfield.text!)
+//    }
     @IBAction func menuButtonClicked(_ sender: Any) {
         delegate?.didTapButton()
     }
@@ -49,21 +56,19 @@ class AddVenueController: UIViewController {
 
 extension AddVenueController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+        return venueListViewModel == nil ? 0 : venueListViewModel.numberOfRowsSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchResultVenueCell
-        cell?.venueNameLabel.text = dataList[indexPath.row].name
-        cell?.venueAddressLabel.text = dataList[indexPath.row].location.address
-        cell?.venueIconImageView.sd_setImage(with: URL(string: dataList[indexPath.row].categories[0].icon!.prefix!+"64"+dataList[indexPath.row].categories[0].icon!.suffix!), placeholderImage: UIImage(named: "placeholder.png"))
-
+        let venueViewModel = self.venueListViewModel.getVenueAt(index: indexPath.row)
+        cell?.configureCell(venueViewModel: venueViewModel)
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
         let vc = storyboard?.instantiateViewController(withIdentifier: "MapVC") as? MapViewController
-        vc?.city = self.dataList[indexPath.row]
+        vc?.city = self.venueListViewModel.getVenueAt(index: indexPath.row)
         self.present(vc!, animated: true, completion: nil)
     }
 }

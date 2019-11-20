@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class SearchResultVenueCell: UITableViewCell {
 
     @IBOutlet weak var venueIconImageView: UIImageView!
@@ -22,6 +22,11 @@ class SearchResultVenueCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func configureCell(venueViewModel:VenueViewModel){
+        venueNameLabel.text = venueViewModel.venueName
+        venueAddressLabel.text = venueViewModel.venueShortAddres
+        venueIconImageView.sd_setImage(with: URL(string: venueViewModel.venueIconUrl)!, placeholderImage: UIImage(named: "p"))
     }
 
 }

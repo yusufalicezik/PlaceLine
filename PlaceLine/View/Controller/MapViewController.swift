@@ -11,7 +11,7 @@ import MapKit
 import SDWebImage
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView:MKMapView!
-    var city:Venue?
+    var city:VenueViewModel?
     weak var detailsView:DetailView?
     var annotation:MKPointAnnotation?
     override func viewDidLoad() {
@@ -23,10 +23,10 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         if let city = self.city{
             annotation = MKPointAnnotation()
-            annotation?.coordinate = CLLocationCoordinate2D(latitude: city.location.lat, longitude: city.location.lng)
+            annotation?.coordinate = CLLocationCoordinate2D(latitude: city.venueLocatin.lat, longitude: city.venueLocatin.lng)
             self.mapView.addAnnotation(annotation!)
             let diameter = 0.75 * 2000
-            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: city.location.lat, longitude: city.location.lng), latitudinalMeters: diameter, longitudinalMeters: diameter)
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: city.venueLocatin.lat, longitude: city.venueLocatin.lng), latitudinalMeters: diameter, longitudinalMeters: diameter)
             self.mapView.setRegion(region, animated: true)
         }
     }
@@ -50,7 +50,6 @@ class MapViewController: UIViewController {
     }
     deinit {
         print("mapVC deinit")
-        
     }
     @IBAction func backPressed(_ sender: Any) {
         detailsView?.nib = nil

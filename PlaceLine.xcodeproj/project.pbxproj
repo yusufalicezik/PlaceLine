@@ -22,6 +22,7 @@
 		4883BB44238351ED00DB5D1B /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB43238351ED00DB5D1B /* MenuCell.swift */; };
 		4883BB462383591D00DB5D1B /* SearchResultVenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB452383591D00DB5D1B /* SearchResultVenueCell.swift */; };
 		4883BB4823836CE300DB5D1B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883BB4723836CE300DB5D1B /* MapViewController.swift */; };
+		48923E9A2385C58C0000D639 /* VenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48923E992385C58C0000D639 /* VenueViewModel.swift */; };
 		48D362F9238464330095C070 /* PlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48D362F7238464330095C070 /* PlanModel.xcdatamodeld */; };
 		48D362FC238469420095C070 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D362FB238469420095C070 /* DetailView.swift */; };
 		48D362FE238469700095C070 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D362FD238469700095C070 /* DetailView.xib */; };
@@ -51,6 +52,7 @@
 		4883BB43238351ED00DB5D1B /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		4883BB452383591D00DB5D1B /* SearchResultVenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVenueCell.swift; sourceTree = "<group>"; };
 		4883BB4723836CE300DB5D1B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		48923E992385C58C0000D639 /* VenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
 		48D362F8238464330095C070 /* PlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlanModel.xcdatamodel; sourceTree = "<group>"; };
 		48D362FB238469420095C070 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		48D362FD238469700095C070 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		4883BB332383438F00DB5D1B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				48923E992385C58C0000D639 /* VenueViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4883BB2123833CB700DB5D1B /* AddVenueController.swift in Sources */,
+				48923E9A2385C58C0000D639 /* VenueViewModel.swift in Sources */,
 				48D3630723848A5E0095C070 /* ImageServiceManager.swift in Sources */,
 				485DE4542383778500D23E12 /* VenueTimeLineCell.swift in Sources */,
 				4883BB1F23833CB700DB5D1B /* AppDelegate.swift in Sources */,

@@ -3,13 +3,6 @@ PODS:
   - AnimatedCollectionViewLayout (1.0.0)
   - Cards (1.4.0):
     - Player (= 0.13.0)
-  - collection-view-layouts/Core (0.2.2)
-  - collection-view-layouts/FlickrLayout (0.2.2):
-    - collection-view-layouts/Core
-  - collection-view-layouts/FlipboardLayout (0.2.2):
-    - collection-view-layouts/Core
-  - collection-view-layouts/InstagramLayout (0.2.2):
-    - collection-view-layouts/Core
   - DynamicBlurView (4.0.0)
   - IQKeyboardManagerSwift (6.5.4)
   - Letters (2.1.1)
@@ -18,6 +11,12 @@ PODS:
   - Player (0.13.0)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
@@ -27,15 +26,13 @@ DEPENDENCIES:
   - Alamofire
   - AnimatedCollectionViewLayout
   - Cards
-  - collection-view-layouts/Core
-  - collection-view-layouts/FlickrLayout
-  - collection-view-layouts/FlipboardLayout
-  - collection-view-layouts/InstagramLayout
   - IQKeyboardManagerSwift
   - Letters
   - ListPlaceholder
   - Pastel
   - PopupDialog
+  - RxCocoa
+  - RxSwift
   - SDWebImage
   - SwiftyJSON
 
@@ -44,7 +41,6 @@ SPEC REPOS:
     - Alamofire
     - AnimatedCollectionViewLayout
     - Cards
-    - collection-view-layouts
     - DynamicBlurView
     - IQKeyboardManagerSwift
     - Letters
@@ -52,6 +48,9 @@ SPEC REPOS:
     - Pastel
     - Player
     - PopupDialog
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SDWebImage
     - SwiftyJSON
 
@@ -59,7 +58,6 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AnimatedCollectionViewLayout: ad7879152f068df6a17192551587709ff88678db
   Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
-  collection-view-layouts: 474ec4cce601a26247737227a97fa6a4eb30213f
   DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   Letters: 34476b0d413813bcf9273b2760be7ff4cd75f5c7
@@ -67,9 +65,12 @@ SPEC CHECKSUMS:
   Pastel: 814f081efbe2859c37e65ee44f396e6e5be88619
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 3720ab228d45d372ad7bde4e69abe87d0970a954
+PODFILE CHECKSUM: 4c3855a7e805470054030e1fdec5b161d2149a6f
 
 COCOAPODS: 1.8.4
