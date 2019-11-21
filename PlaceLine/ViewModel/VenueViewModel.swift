@@ -68,4 +68,7 @@ extension VenueViewModel{
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.venueLocatin.lat, longitude: self.venueLocatin.lng), latitudinalMeters: diameter, longitudinalMeters: diameter)
         return region
     }
+    var venueID:String{
+        return self.venue.id
+    }
 }

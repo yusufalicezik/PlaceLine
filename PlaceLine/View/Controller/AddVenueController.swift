@@ -16,6 +16,7 @@ class AddVenueController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var venueListViewModel:VenueListViewModel!
     var delegate:HamburgerMenuDelegate?
+    var menuDelegate:MenuSelectDelegate?
     var disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,13 @@ class AddVenueController: UIViewController {
             PlaceServiceManager.shared.getVenuesForQuickSearch(byVenueName: withKey) { [weak self] city in
                 print(withKey)
                 self?.venueListViewModel = VenueListViewModel(city.response.venues)
-                //self?.dataList = city.response.venues
-                DispatchQueue.main.async {
-                    self!.tableView.reloadData()
-                }
+                self?.updateUI()
             }
+        }
+    }
+    private func updateUI(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     @IBAction func menuButtonClicked(_ sender: Any) {
@@ -60,6 +63,7 @@ extension AddVenueController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
         let vc = storyboard?.instantiateViewController(withIdentifier: "MapVC") as? MapViewController
+        vc?.menuDelegate = self.menuDelegate
         vc?.venueViewModel = self.venueListViewModel.getVenueAt(index: indexPath.row)
         self.present(vc!, animated: true, completion: nil)
     }

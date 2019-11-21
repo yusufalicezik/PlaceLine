@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import AnimatedCollectionViewLayout
 import CoreData
+import PopupDialog
 class DetailView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,6 +19,7 @@ class DetailView: UIView {
     private var bottomConstraint:NSLayoutConstraint?
     var imageUrlDataList = [String]()
     var venueViewModel:VenueViewModel?
+    var menuDelegate:MenuSelectDelegate?
     var width:CGFloat?
     var parent:UIViewController?
     var nib:UINib?
@@ -79,18 +81,32 @@ class DetailView: UIView {
         let entity = NSEntityDescription.entity(forEntityName: "Plan", in: context)
         let plan = NSManagedObject(entity: entity!, insertInto: context)
         plan.setValue(false, forKey: "isDone")
-        plan.setValue("Description", forKey: "venue_description")
+        //plan.setValue(venueViewModel?.venu, forKey: "venue_description")
         plan.setValue(venueViewModel?.venueIconUrl, forKey: "venue_image")
         plan.setValue(venueViewModel?.venueName, forKey: "venue_name")
         plan.setValue(venueViewModel?.venueShortAddres, forKey: "venue_short_address")
+        plan.setValue(venueViewModel?.venueLocatin.lat, forKey: "lat")
+        plan.setValue(venueViewModel?.venueLocatin.lng, forKey: "long")
+        plan.setValue(venueViewModel?.venueId, forKey: "id")
         plan.setValue(Date(), forKey: "venue_time")
         do {
             try context.save()
-            print("save success")
+            self.openPopup()
         } catch {
             print("Failed saving")
         }
       
+    }
+    private func openPopup(){
+        let popup = PopupDialog(title: "Başarılı", message: "Yeni plan eklendi", image: nil)
+        guard let parentVC = self.parent as? MapViewController else {return}
+        let buttonOk = DefaultButton(title: "Tamam", dismissOnTap: true) {
+            parentVC.backPressed()
+            parentVC.menuDelegate?.didClickedItem(0)
+        }
+        popup.addButton(buttonOk)
+        parentVC.present(popup, animated: true, completion:nil)
+        
     }
     
 }

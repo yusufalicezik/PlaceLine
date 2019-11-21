@@ -30,6 +30,7 @@ class ContainerViewController: UIViewController {
         default:
             let vc = storyboard?.instantiateViewController(withIdentifier: "AddVenueVC") as? AddVenueController
             vc?.delegate = self
+            vc?.menuDelegate = self
             self.currentViewController = vc!
         }
         self.isOpened = false
@@ -107,6 +108,7 @@ extension ContainerViewController{
 
 extension ContainerViewController:MenuSelectDelegate{
     func didClickedItem(_ index: Int) {
+        print(index)
         showMenuVC(true)
         isOpened = true
         DispatchQueue.main.asyncAfter(deadline: .now()+0.15) {

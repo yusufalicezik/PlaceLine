@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView:MKMapView!
     var venueViewModel:VenueViewModel?
     weak var detailsView:DetailView?
+    var menuDelegate:MenuSelectDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
@@ -41,19 +42,22 @@ class MapViewController: UIViewController {
     deinit {
         print("mapVC deinit")
     }
-    @IBAction func backPressed(_ sender: Any) { //for memory leak
-        self.clearDetailsView()
-        detailsView?.nib = nil
-        mapView.delegate = nil
-        mapView.removeFromSuperview()
-        mapView = nil
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func backPressed(_ sender: Any) {
+        self.backPressed()
     }
     private func clearDetailsView(){
         SDImageCache.shared.clearMemory()
         SDImageCache.shared.clearDisk()
         detailsView?.nib = nil
         detailsView?.removeFromSuperview()
+    }
+    func backPressed(){ //for memory leak
+        self.clearDetailsView()
+        detailsView?.nib = nil
+        mapView.delegate = nil
+        mapView.removeFromSuperview()
+        mapView = nil
+        self.dismiss(animated: true, completion: nil)
     }
 }
 extension MapViewController:MKMapViewDelegate{
